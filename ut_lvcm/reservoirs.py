@@ -29,6 +29,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 """
+Module containing the code to run the California reservoirs experiments.
 """
 
 import numpy as np
@@ -41,7 +42,8 @@ import pickle
 # --------------------------------------------------------------------
 # DAGs
 
-PATH = "scratch/reservoirs/"
+DATA_PATH = "scratch/reservoirs/"
+PATH = "reservoirs_experiments/"
 
 filenames = ["train_%d.txt" % i for i in range(1, 5)]
 
@@ -56,14 +58,14 @@ def process_data():
     """Process the data from the .csv files into a single np.array"""
     print("Processing reservoir data from files")
     print("  %s" % filenames)
-    dataframes = [pd.read_csv(PATH + f, header=None) for f in filenames]
+    dataframes = [pd.read_csv(DATA_PATH + f, header=None) for f in filenames]
     data = [df.to_numpy() for df in dataframes]
-    np.savez(PATH + "reservoirs_data", *data)
-    print("  Saved in", PATH + "reservoirs_data" + ".npz")
+    np.savez(DATA_PATH + "reservoirs_data", *data)
+    print("  Saved in", DATA_PATH + "reservoirs_data" + ".npz")
 
 
 def load_data(normalize=True):
-    f = np.load(PATH + "reservoirs_data.npz")
+    f = np.load(DATA_PATH + "reservoirs_data.npz")
     data = list(f.values())
     if normalize:
         pooled = np.vstack(data)
@@ -127,8 +129,10 @@ def experiment(p=15, envs=None, prune_edges=True, threshold=False, ges_obs=True,
                       folds=folds,
                       random_state=random_state)
     print("Finished experiments (%0.2f seconds)" % (time.time() - start))
-    save_results(result, p, num_latent, prune_edges, threshold, ges_obs, tag, latents, random_state)
+    save_results(result, p, num_latent, prune_edges, threshold,
+                 ges_obs, tag, latents, random_state)
     return result
+
 
 def save_results(results, p, num_latent, prune_edges, threshold, ges_obs, tag, latents, random_state):
     filename = PATH + \
@@ -142,4 +146,5 @@ def save_results(results, p, num_latent, prune_edges, threshold, ges_obs, tag, l
 def run_multisplit_experiments():
     for i in range(10):
         tag = "multisplit_%d" % i
-        experiment(p=10, tag=tag, folds=[.7, .15, .15], latents=False, random_state=i)
+        experiment(p=10, tag=tag,
+                   folds=[.7, .15, .15], latents=False, random_state=i)
