@@ -14,4 +14,4 @@ This README is not intended to be completely self-explanatory, and should be rea
 
 ### Sachs Dataset Experiments (figures 5 and 10)
 
-### California Reservoirs Experiments (figures 5 and 10)
+### California Reservoirs Experiments (figures 6)
