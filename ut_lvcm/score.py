@@ -102,7 +102,7 @@ class _Cache():
         else:
             self._As.append(A.copy())
             self._Is.append(I.copy())
-            self._scores.append(score.copy())
+            self._scores.append(score)
             self._models.append(model.copy())
 
 

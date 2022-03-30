@@ -51,7 +51,8 @@ class MetricsTests(unittest.TestCase):
         p = 10
         no_edges = 3
         for i in range(NUM_RND_TESTS):
-            A = sempler.generators.dag_avg_deg(p, 2.1, w_min=1, w_max=2, random_state=i)
+            A = sempler.generators.dag_avg_deg(
+                p, 2.1, w_min=1, w_max=2, random_state=i)
             # The distance from a graph to itself is 0
             self.assertEqual(0, metrics._dist_struct(A, A))
             # The distance from a graph to the empty graph is 1
@@ -98,8 +99,10 @@ class MetricsTests(unittest.TestCase):
         # Test that for singleton classes the result is the same as calling _distr_struct
         p = 10
         for i in range(NUM_RND_TESTS):
-            A = sempler.generators.dag_avg_deg(p, 2.1, w_min=1, w_max=2, random_state=i)
-            B = sempler.generators.dag_avg_deg(p, 2.1, w_min=1, w_max=2, random_state=i + 100)
+            A = sempler.generators.dag_avg_deg(
+                p, 2.1, w_min=1, w_max=2, random_state=i)
+            B = sempler.generators.dag_avg_deg(
+                p, 2.1, w_min=1, w_max=2, random_state=i + 100)
             self.assertEqual(metrics._dist_struct(A, B),
                              metrics._maxmin_metric([A], [B], metrics._dist_struct))
             self.assertEqual(metrics._dist_struct(A, B),
@@ -125,15 +128,19 @@ class MetricsTests(unittest.TestCase):
         # Test 1
         class_1 = [A, C]
         class_2 = [B, D]
-        self.assertEqual(1 / 3, metrics._maxmin_metric(class_1, class_2, metrics._dist_struct))
-        self.assertEqual(1 / 2, metrics._maxmin_metric(class_2, class_1, metrics._dist_struct))
+        self.assertEqual(1 / 3, metrics._maxmin_metric(class_1,
+                         class_2, metrics._dist_struct))
+        self.assertEqual(1 / 2, metrics._maxmin_metric(class_2,
+                         class_1, metrics._dist_struct))
         self.assertEqual(1 / 3, metrics.type_1_structc(class_1, class_2))
         self.assertEqual(1 / 2, metrics.type_2_structc(class_1, class_2))
         # Test 2
         class_1 = [A, B]
         class_2 = [C, D]
-        self.assertEqual(1 / 2, metrics._maxmin_metric(class_1, class_2, metrics._dist_struct))
-        self.assertEqual(1 / 2, metrics._maxmin_metric(class_2, class_1, metrics._dist_struct))
+        self.assertEqual(1 / 2, metrics._maxmin_metric(class_1,
+                         class_2, metrics._dist_struct))
+        self.assertEqual(1 / 2, metrics._maxmin_metric(class_2,
+                         class_1, metrics._dist_struct))
         self.assertEqual(1 / 2, metrics.type_1_structc(class_1, class_2))
         self.assertEqual(1 / 2, metrics.type_2_structc(class_1, class_2))
 
@@ -152,12 +159,13 @@ class MetricsTests(unittest.TestCase):
 
             # Build model
             true_model = experiments.chain_graph(
-                p, true_I, h, e, var_lo, var_hi, i_var_lo, i_var_hi, psi_lo, psi_hi, B_lo, B_hi)
+                p, true_I, h, e, var_lo, var_hi, i_var_lo, i_var_hi, psi_lo, psi_hi, 0, 0, B_lo, B_hi)
 
             # Test that call to _imec finishes fast enough
             start = time.time()
             imec = metrics._imec((true_model.A, true_I))
-            print("%d members in I-MEC, done in %0.2f seconds" % (len(imec), time.time() - start))
+            print("%d members in I-MEC, done in %0.2f seconds" %
+                  (len(imec), time.time() - start))
 
     def test_dist_sets(self):
         p = 20
@@ -244,19 +252,24 @@ class MetricsTests(unittest.TestCase):
         k = 10
         for i in range(NUM_RND_TESTS):
             size = 3
-            parent_sets = [set(rng.choice(range(p), size=size, replace=False)) for i in range(k)]
+            parent_sets = [
+                set(rng.choice(range(p), size=size, replace=False)) for i in range(k)]
             supersets = [s | {p} for s in parent_sets]
             # If two sets are the same the type-I and type-II errors are 0
-            self.assertEqual(0, metrics.type_1_parents(parent_sets, parent_sets))
-            self.assertEqual(0, metrics.type_2_parents(parent_sets, parent_sets))
+            self.assertEqual(0, metrics.type_1_parents(
+                parent_sets, parent_sets))
+            self.assertEqual(0, metrics.type_2_parents(
+                parent_sets, parent_sets))
             # if all are supersets
             # Test type 1 metric is 0
             self.assertEqual(0, metrics.type_1_parents(parent_sets, supersets))
             # Type II metric is 1 / (size + 1)
-            self.assertEqual(1 / (size + 1), metrics.type_2_parents(parent_sets, supersets))
+            self.assertEqual(
+                1 / (size + 1), metrics.type_2_parents(parent_sets, supersets))
             # if all are subsets
             # Type 1 metric is 1 / (size + 1)
-            self.assertEqual(1 / (size + 1), metrics.type_1_parents(supersets, parent_sets))
+            self.assertEqual(
+                1 / (size + 1), metrics.type_1_parents(supersets, parent_sets))
             # Type II metric is 0 if all are subsets
             self.assertEqual(0, metrics.type_2_parents(supersets, parent_sets))
 
@@ -285,10 +298,12 @@ class MetricsTests(unittest.TestCase):
         p = 20
         size_I = 3
         for i in range(NUM_RND_TESTS):
-            targets = sempler.generators.intervention_targets(p, 1, size_I, random_state=i)[0]
+            targets = sempler.generators.intervention_targets(
+                p, 1, size_I, random_state=i)[0]
             I = set(targets[0:-1])
             sup_I = set(targets)
-            true_A = sempler.generators.dag_avg_deg(p=20, k=2.1, random_state=i)
+            true_A = sempler.generators.dag_avg_deg(
+                p=20, k=2.1, random_state=i)
             truth = (true_A, I)
 
             # Check that recovering the truth results in (0,0)
@@ -456,6 +471,7 @@ class MetricsTests(unittest.TestCase):
 
 
 def A_I(seed, p=20, size_I=3):
-    I = set(sempler.generators.intervention_targets(p, 1, size_I, random_state=seed)[0])
+    I = set(sempler.generators.intervention_targets(
+        p, 1, size_I, random_state=seed)[0])
     A = sempler.generators.dag_avg_deg(p=20, k=2.1, random_state=seed)
     return (A, I)
