@@ -32,7 +32,7 @@ SUITE = all
 PROJECT = ut_lvcm
 
 # Run tests
-tests: test examples doctests
+tests: test doctests
 
 test:
 ifeq ($(SUITE),all)
@@ -40,10 +40,6 @@ ifeq ($(SUITE),all)
 else
 	python -m unittest $(PROJECT).test.$(SUITE)
 endif
-
-# Run the example scripts in the README
-examples:
-	PYTHONPATH=./ python3 docs/template_example.py
 
 # Run the doctests
 doctests:
