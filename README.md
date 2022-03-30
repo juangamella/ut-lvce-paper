@@ -16,7 +16,7 @@ This README is not intended to be completely self-explanatory, and should be rea
 
 ### UT-LVCE for Causal Discovery (figures 4, 7, 8 and 9)
 
-1. Execute the script [`run_comparisons.sh`](run_comparisons.sh)
+1. Execute the script [`run_comparisons.sh`](run_comparisons.sh). It will use a total of 4 threads (cores) to run the experiments; this behaviour changed by editing the script and setting the variable `N_THREADS` to the desired value.
 2. The results are stored in the `comparison_experiments/` directory.
 3. To generate the figures, use notebook [`figures_comparisons.ipynb`](figures_comparisons.ipynb), appropriately replacing the existing result filenames by those from step (2). The results are stored in the `figures/` directory.
 
