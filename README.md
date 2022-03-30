@@ -8,6 +8,8 @@ This README is not intended to be completely self-explanatory, and should be rea
 
 ## Reproducing the results
 
+Below are the exact instructions to reproduce all the experiments and figures used in the paper. Please note that, without access to a HPC cluster, completion of the experiments may take days or weeks. We ran our experiments on the Euler cluster of ETH Zürich - see the files `run_baselines_cluster.sh` and `run_comparisons_cluster.sh` for details (i.e. number of cores, expected completion time, etc).
+
 ### Baseline experiments (figures 3a and 3b)
 
 1. Execute the script [`run_baselines.sh`](run_baselines.sh). It will use a total of 4 threads (cores) to run the experiments; the number of threads can be set by editing the script and setting the variable `N_THREADS` to the desired value.
@@ -22,7 +24,15 @@ This README is not intended to be completely self-explanatory, and should be rea
 
 ### Sachs Dataset Experiments (figures 5 and 10)
 
+1. Run the experiments by executing the command `python3 -m ut_lvcm.sachs` from the root directory of this repository.
+2. The results are stored in the `sachs_experiments/` directory.
+3. To generate the figures, use notebook [`figures_sachs.ipynb`](figures_sachs.ipynb), appropriately replacing the existing result filenames by those from step 2. The resulting figures are stored in the `figures/` directory.
+
 ### California Reservoirs Experiments (figure 6)
+
+1. Run the experiments by executing the command `python3 -m ut_lvcm.reservoirs` from the root directory of this repository.
+2. The results are stored in the `reservoirs_experiments/` directory.
+3. To generate the figures, use notebook [`figures_reservoirs.ipynb`](figures_reservoirs.ipynb), appropriately replacing the existing result filenames by those from step 2. The resulting figures are stored in the `figures/` directory.
 
 ## Repository structure
 
