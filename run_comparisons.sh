@@ -52,9 +52,9 @@ TAG='fffchh'
 
 # I = 10
 
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -66,21 +66,21 @@ TAG='fffchs'
 
 # I = 10
 
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
 
 # I = 19
 
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 100
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 500
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 100
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 500
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000
 
 # I = 20
 
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -92,22 +92,22 @@ TAG='fffcsh'
 
 # I = 10
 
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
 
 # I = 19
 
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 100
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 500
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 10000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 100
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 500
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 10000
 
 # I = 20
 
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 # SS - Soft interventions on observed and latents
@@ -118,20 +118,20 @@ TAG='fffcss'
 
 # I = 10
 
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
 
 # I = 19
 
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 100
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 500
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 19 --n 10000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 100
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 500
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 10000
 
 # I = 20
 
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000
-python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 10000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000
+python3 -m ut_lvcm.comparison_experiments --n_workers $N_THREADS --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 10000
