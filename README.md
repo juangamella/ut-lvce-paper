@@ -6,6 +6,8 @@ This repository contains the code to reproduce the experiments and plot the resu
 
 If you're interested in using the algorithms described in the paper in your own work, they are available as a separate and well-documented python package called `utlvce`. You can find more information on its own repository at [github.com/juangamella/ut-lvce](https://github.com/juangamella/ut-lvce).
 
+This repository contains only the code to reproduce the results from the paper.
+
 ## Installing Dependencies
 
 We ran our experiments using `python=3.7.1` and `R=3.6.0`. The required R packages can be found in [`R_requirements.txt`](R_requirements.txt). The Python dependencies live in [`requirements.txt`](requirements.txt).
