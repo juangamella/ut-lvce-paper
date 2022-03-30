@@ -6,6 +6,26 @@ This README is not intended to be completely self-explanatory, and should be rea
 
 ## Installing Dependencies
 
+We ran our experiments using `python=3.7.1` and `R=3.6.0`. The required R packages can be found in [`R_requirements.txt`](R_requirements.txt). The Python dependencies live in [`requirements.txt`](requirements.txt).
+
+For your convenience, a makefile is included that will create a python virtual environment and install the necessary Python dependencies. To do this, simply run
+
+```sh
+make venv
+```
+
+and then
+
+```sh
+source venv/bin/activate
+```
+
+to activate the virtual environment. Of course, you will need to be in a "make-capable" system (e.g. linux), where you can invoke the python `venv` module. To remove the virtual enviroment you can run
+
+```bash
+make clean
+```
+
 ## Reproducing the results
 
 Below are the exact instructions to reproduce all the experiments and figures used in the paper. Please note that, without access to a HPC cluster, completion of the experiments may take days or weeks. We ran our experiments on the Euler cluster of ETH Zürich - see the files [`run_baselines_cluster.sh`](run_baselines_cluster.sh) and [`run_comparisons_cluster.sh`](run_comparisons_cluster.sh) for details (i.e. number of cores, expected completion time, etc).
