@@ -8,7 +8,7 @@ This README is not intended to be completely self-explanatory, and should be rea
 
 ## Reproducing the results
 
-Below are the exact instructions to reproduce all the experiments and figures used in the paper. Please note that, without access to a HPC cluster, completion of the experiments may take days or weeks. We ran our experiments on the Euler cluster of ETH Zürich - see the files `run_baselines_cluster.sh` and `run_comparisons_cluster.sh` for details (i.e. number of cores, expected completion time, etc).
+Below are the exact instructions to reproduce all the experiments and figures used in the paper. Please note that, without access to a HPC cluster, completion of the experiments may take days or weeks. We ran our experiments on the Euler cluster of ETH Zürich - see the files [`run_baselines_cluster.sh`](run_baselines_cluster.sh) and [`run_comparisons_cluster.sh`](run_comparisons_cluster.sh) for details (i.e. number of cores, expected completion time, etc).
 
 ### Baseline experiments (figures 3a and 3b)
 
