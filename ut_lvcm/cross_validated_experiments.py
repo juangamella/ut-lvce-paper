@@ -1,4 +1,4 @@
-# Copyright 2020 Juan L Gamella
+# Copyright 2022 Juan L. Gamella
 
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -87,15 +87,19 @@ arguments = {
     # Estimator settings
     'psi_fixed': {'default': False, 'type': bool},
     'init': {'default': 0, 'type': int},
-    'np': {'default': False, 'type': bool},  # If we should skip the graph pruning phase
+    # If we should skip the graph pruning phase
+    'np': {'default': False, 'type': bool},
     'th': {'default': None, 'type': float},
     'hist': {'default': 1, 'type': int},
-    'fh': {'default': None, 'type': int},  # Force the estimator to run with a particular h
+    # Force the estimator to run with a particular h
+    'fh': {'default': None, 'type': int},
     # Sampling parameters
     'n': {'default': 1000, 'type': int},
     #  GES parameters
-    'gb': {'default': False, 'type': bool},  # If GES should run without a backward phase
-    'gp': {'default': False, 'type': bool}  # If GES should run with multiple penalizations
+    # If GES should run without a backward phase
+    'gb': {'default': False, 'type': bool},
+    # If GES should run with multiple penalizations
+    'gp': {'default': False, 'type': bool}
     #  TODO: fill these
 }
 
@@ -204,7 +208,8 @@ else:
                   (max_degree, args.p / 6)) if args.debug else None
             continue
         elif np.sum(model.A) < .8 * args.p or np.sum(model.A) > 1.5 * args.p:
-            print("    Too few or too many edges (%d)" % np.sum(model.A)) if args.debug else None
+            print("    Too few or too many edges (%d)" %
+                  np.sum(model.A)) if args.debug else None
         # elif args.disc and args.init == 0:
         #     X, _, _ = model.sample(args.n, random_state=args.seed)
         #     cpdag = ut_lvcm.ges.fit(X, verbose=1)
@@ -248,7 +253,8 @@ print(" done.")
 if args.G == -1:
     assert len(test_cases) == 1
 else:
-    assert len(np.unique([model.A for model, _ in test_cases], axis=0)) == args.G
+    assert len(
+        np.unique([model.A for model, _ in test_cases], axis=0)) == args.G
 
 # --------------------------------------------------------------------
 # Experiments
@@ -263,7 +269,8 @@ max_fluctuations = 5
 threshold_score = 1e-5
 learning_rate = 1
 B_solver = 'grad'
-run_metrics = [metrics.type_1_struct, metrics.type_2_struct, metrics.type_1_I, metrics.type_2_I]
+run_metrics = [metrics.type_1_struct, metrics.type_2_struct,
+               metrics.type_1_I, metrics.type_2_I]
 threshold_graph = args.th
 threshold_I = args.th
 ges_lambdas = None
@@ -313,7 +320,8 @@ def run_test_case(test_case, seed):
         initial_graphs = [utils.add_edges(A, args.no_edges, random_state=i)
                           for (i, A) in enumerate(imec)]
         initial_graphs = np.array(initial_graphs)
-    elif args.init == 7:  # 7 - MEC(true graph + random edges), ensuring initial type-II error > 0
+    # 7 - MEC(true graph + random edges), ensuring initial type-II error > 0
+    elif args.init == 7:
         i = 0
         threshold = 0.15
         t2 = 0
@@ -322,7 +330,8 @@ def run_test_case(test_case, seed):
         print("Searching initial supergraph with type-II > %0.2f... len(true I-MEC) = %d" %
               (threshold, len(true_imec)))
         while t2 < threshold:
-            supergraph = utils.add_edges(true_model.A, args.no_edges, random_state=args.seed + i)
+            supergraph = utils.add_edges(
+                true_model.A, args.no_edges, random_state=args.seed + i)
             i += 1
             initial_graphs = utils.mec(supergraph)
             t2 = metrics.type_2_structc(initial_graphs, true_imec)
@@ -370,7 +379,8 @@ def run_test_case(test_case, seed):
     # Apply metrics
     start = time.time()
     print("  Running metrics")
-    all_metrics = [(m, m((best_model.A, best_I), (true_model.A, true_I))) for m in run_metrics]
+    all_metrics = [(m, m((best_model.A, best_I), (true_model.A, true_I)))
+                   for m in run_metrics]
     print("  Done (%0.2f seconds)" % (time.time() - start))
     return (best_model, best_I, best_test_score), history, all_metrics, elapsed
 
@@ -397,8 +407,8 @@ def worker(info):
     return idx
 
 
-directory = "experiments/results_%d_%s/" % (time.time(),
-                                            experiments.parameter_string(args, excluded_keys))
+directory = "baseline_experiments/results_%d_%s/" % (time.time(),
+                                                     experiments.parameter_string(args, excluded_keys))
 os.makedirs(directory)
 
 # Store test cases
@@ -428,7 +438,8 @@ else:
     with multiprocessing.Pool(n_workers) as pool:
         pool.map(worker, iterable)
 end = time.time()
-print("\n\nFinished experiments at %s (elapsed %0.2f seconds)" % (datetime.now(), end - start))
+print("\n\nFinished experiments at %s (elapsed %0.2f seconds)" %
+      (datetime.now(), end - start))
 
 # --------------------------------------------------------------------
 # Process results
