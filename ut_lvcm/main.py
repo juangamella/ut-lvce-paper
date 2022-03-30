@@ -35,7 +35,9 @@ import numpy as np
 import ut_lvcm.utils as utils
 from ut_lvcm.score import Score
 import ut_lvcm
-import ut_lvcm.ges
+import ges
+import ges.scores
+import time
 import gc  # Garbage collector
 
 # TODO
@@ -78,7 +80,7 @@ def fit(data, psi_max, psi_fixed, max_iter, threshold_dist_B, threshold_fluctuat
         # Run GES on pooled training data or only a particular environment
         ges_data = training_data if ges_env is None else [
             training_data[ges_env]]
-        initial_graphs = ut_lvcm.ges.fit(
+        initial_graphs = _fit_ges(
             ges_data, phases=ges_phases, lambdas=ges_lambdas, verbose=1)
 
     print("No. edges in initial graphs (%d)" % len(initial_graphs), [np.sum(A)
@@ -319,6 +321,54 @@ def _penalizer(A, I, lmbda_graph, lmbda_I):
     p = len(A)
     max_degree = utils.degrees(utils.moral_graph(A)).max()
     return lmbda_graph * (p * max_degree + np.sum(A != 0)) + lmbda_I * len(I)
+
+
+def _fit_ges(data, verbose=1, lambdas=None, phases=None):
+    """Pool the data and run GES on it, returning the estimated CPDAG.
+
+    Parameters
+    ----------
+    data : list of numpy.ndarray
+        A list containing the sample from each environment.
+    verbose : int, default=0
+        If debug and execution traces should be printed. `0`
+        corresponds to no traces, higher values correspond to higher
+        verbosity.
+
+    Returns
+    -------
+    cpdag : numpy.ndarray
+        The adjacency matrix of the estimated CPDAG.
+    """
+    # Set phases & lambdas
+    phases = ['forward', 'backward', 'turning'] if phases is None else phases
+    lambdas = [2] if lambdas is None else lambdas
+    # Pool data
+    pooled_data = np.vstack(data)
+    N = len(pooled_data)
+    # Run GES
+    graphs = []
+    for pen in lambdas:
+        start = time.time()
+        print("  Running GES on pooled data for λ=%0.2f with phases=%s... " %
+              (pen, phases), end="") if verbose > 0 else None
+        # Set penalization
+        lmbda = pen * 0.5 * np.log(N)
+        score_class = ges.scores.GaussObsL0Pen(pooled_data, lmbda=lmbda)
+        # Run GES
+        cpdag = ges.fit(score_class, phases=phases, iterate=True)[0]
+        graphs += list(utils.all_dags(cpdag))
+        print("  done (%0.2f seconds)" %
+              (time.time() - start)) if verbose > 0 else None
+    return np.array(graphs)
+
+    # if lib == 'cdt':
+    #     output = GES(verbose=verbose).predict(pd.DataFrame(pooled_data))
+    #     result = nx.to_numpy_array(output)
+    # elif lib == 'ges':
+    #     result = ges.fit_bic(pooled_data)[0]
+    # print("done (%0.2f seconds)" % (time.time() - start)) if verbose > 0 else None
+    # return result
 
 
 # --------------------------------------------------------------------
