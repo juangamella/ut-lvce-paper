@@ -3,7 +3,8 @@
 This repository contains the code to reproduce the experiments and plot the results for the paper *"Perturbations and Causality in Gaussian Latent Variable Models"*, by A. Taeb, JL. Gamella, C. Heinze-Deml and P. Bühlmann. This README is not intended to be completely self-explanatory, and should be read alongside the manuscript (https://arxiv.org/abs/2101.06950).
 
 ## Software package
-The algorithms presented in the paper are available in a separate python package called `utlvce`, which you can install via `pip`. You can find more information on its own repository at [github.com/juangamella/ut-lvce](https://github.com/juangamella/ut-lvce).
+
+If you're interested in using the algorithms described in the paper in your own work, they are available as a separate and well-documented python package called `utlvce`. You can find more information on its own repository at [github.com/juangamella/ut-lvce](https://github.com/juangamella/ut-lvce).
 
 ## Installing Dependencies
 
