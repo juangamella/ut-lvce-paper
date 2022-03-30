@@ -36,8 +36,13 @@
 # | Hard                          |       10 | 10,19,20 | Ø          |
 # | Soft                          | 10,19,20 | 10,19,20 | Ø          |
 # +-------------------------------+----------+----------+------------+
-
 # Total is 3 + 9 + 10 + 11 = 33 jobs
+
+# NOTE: The only effect of the --cluster tag below is to set the
+# result storage directory to a different location. This location is
+# specific to the ETH Euler cluster, and is hardcoded in the file
+# ut_lvcm/comparison_experiments.py.
+#   -> You don't need to use this flag to run on a cluster.
 
 BASE='--n_workers 50 --cluster --chunksize 1 --runs 10 --seed 42 --G 50 --k 2.1 --p 20 --w_lo 0.7 --w_hi 0.7 --v_lo 0.5 --v_hi 0.6 --psi_lo 0.2 --psi_hi 0.3 --h 2 --e 5 --min_parents 2 --hist 1'
 BSUB_PARAMS='-W 120:00 -n 51'
