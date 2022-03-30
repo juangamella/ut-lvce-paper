@@ -36,6 +36,13 @@ Below are the exact instructions to reproduce all the experiments and figures us
 
 ## Repository structure
 
+You will find the following/files directories:
+
+- `ut_lvcm/` contains the python and R code to run the UT-LVCE procedure and the experiments.
+- `*_experiments` directories hold the results from executing the experiments.
+- `figures_*.ipynb` are the jupyter notebooks used to generate the figures used in the paper. After execution, they are stored in the `figures/` directory.
+-  `scratch/sachs` and `scratch/reservoirs/` contain the datasets and other files used for the Sachs dataset and California Reservoirs experiments.
+
 ## Feedback
 
 If you need assistance or have feedback, you are more than welcome to write me an [email](mailto:juan.gamella@stat.math.ethz.ch) :)
