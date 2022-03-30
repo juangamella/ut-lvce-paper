@@ -6,6 +6,12 @@ This README is not intended to be completely self-explanatory, and should be rea
 
 ## Installing Dependencies
 
-## Running experiments
+## Reproducing the results
 
-## Generating the figures
+### Baseline experiments (figures 3a and 3b)
+
+### UT-LVCE for Causal Discovery (figures 4, 7, 8 and 9)
+
+### Sachs Dataset Experiments (figures 5 and 10)
+
+### California Reservoirs Experiments (figures 5 and 10)
