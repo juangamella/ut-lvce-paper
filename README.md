@@ -20,10 +20,10 @@ and then
 source venv/bin/activate
 ```
 
-to activate the virtual environment. Of course, you will need to be in a "make-capable" system (e.g. linux), where you can invoke the python `venv` module. To remove the virtual enviroment you can run
+to activate the virtual environment. Of course, you will need to be in a "make-capable" system (e.g. linux), where you can invoke the python `venv` module. To run the notebooks from the virtual environment, create a new local kernel (while the environment is active):
 
-```bash
-make clean
+```
+ipython kernel install --user --name=.venv
 ```
 
 ## Reproducing the results
