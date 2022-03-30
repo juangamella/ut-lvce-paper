@@ -42,7 +42,8 @@ import pickle
 # --------------------------------------------------------------------
 # DAGs
 
-PATH = "scratch/sachs/"
+DATA_PATH = "scratch/sachs/"
+PATH = "sachs_experiments/"
 
 filenames = ["b2camp.csv", "cd3cd28+aktinhib.csv", "cd3cd28+g0076.csv",
              "cd3cd28+ly.csv", "cd3cd28+psitect.csv", "cd3cd28+u0126.csv", "cd3cd28.csv", "pma.csv"]
@@ -60,7 +61,8 @@ filenames = ["b2camp.csv", "cd3cd28+aktinhib.csv", "cd3cd28+g0076.csv",
 #               "JNK": "pjnk",
 #               "P38": "P38"}
 
-node_names = ["RAF", "MEK", "ERK", "PLcg", "PIP2", "PIP3", "PKC", "AKT", "PKA", "JNK", "P38"]
+node_names = ["RAF", "MEK", "ERK", "PLcg", "PIP2",
+              "PIP3", "PKC", "AKT", "PKA", "JNK", "P38"]
 var_names = ["praf", "pmek", "p44/42", "plcg", "PIP2",
              "PIP3", "PKC", "pakts473", "PKA", "pjnk", "P38"]
 
@@ -148,13 +150,13 @@ for i, dag in enumerate(utils.all_dags(cpdag_icp)):
 def process_data():
     """Process the data from the .csv files into a single np.array where
     the columns are in the same order as the DAGs."""
-    dataframes = [pd.read_csv(PATH + f) for f in filenames]
+    dataframes = [pd.read_csv(DATA_PATH + f) for f in filenames]
     data = [df[var_names].to_numpy() for df in dataframes]
-    np.savez(PATH + "sachs_data", *data)
+    np.savez(DATA_PATH + "sachs_data", *data)
 
 
 def load_data(normalize=True):
-    f = np.load(PATH + "sachs_data.npz")
+    f = np.load(DATA_PATH + "sachs_data.npz")
     data = list(f.values())
     if normalize:
         pooled = np.vstack(data)
@@ -172,7 +174,8 @@ try:
 except FileNotFoundError:
     process_data()
 
-train_data, test_data = utils.split_data(all_data, [0.95, 0.05], random_state=42)
+train_data, test_data = utils.split_data(
+    all_data, [0.95, 0.05], random_state=42)
 
 print("Training data :", [len(x) for x in train_data])
 print("Test data :", [len(x) for x in test_data])
@@ -218,7 +221,8 @@ def experiment(prune_edges, tag, folds=[.7, .15, .15], random_state=42):
         results.append(result)
         print("  Done (%0.2f seconds)" % (time.time() - start))
 
-    print("Finished experiments (%0.2f seconds)" % (time.time() - experiment_start))
+    print("Finished experiments (%0.2f seconds)" %
+          (time.time() - experiment_start))
     save_results(results, prune_edges, tag, random_state)
     return results
 
@@ -235,4 +239,17 @@ def save_results(results, prune_edges, tag, random_state):
 def run_multisplit_experiments(prune_edges, splits):
     for i in splits:
         tag = "w_testset_%d" % i
-        experiment(prune_edges=prune_edges, tag=tag, folds=[.7, .15, .15], random_state=i + 1)
+        experiment(prune_edges=prune_edges, tag=tag,
+                   folds=[.7, .15, .15], random_state=i + 1)
+
+
+# --------------------------------------------------------------------
+# Run experiments
+
+
+if __name__ == '__main__':
+    splits = list(range(50))
+    # Run without pruning
+    run_multisplit_experiments(prune_edges=True, splits=splits)
+    # Run with pruning
+    run_multisplit_experiments(prune_edges=False, splits=splits)
