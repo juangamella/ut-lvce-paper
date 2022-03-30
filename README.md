@@ -11,10 +11,14 @@ This README is not intended to be completely self-explanatory, and should be rea
 ### Baseline experiments (figures 3a and 3b)
 
 1. Execute the script [`run_baselines.sh`](run_baselines.sh)
-2. The results are stored in the directory ['baseline_experiments/'](baseline_experiments/)
+2. The results are stored in the `baseline_experiments/` directory.
 3. To generate the figures, use notebooks [`figures_baseline_2.ipynb`](figures_baseline_2.ipynb) and [`figures_baseline_3.ipynb`](figures_baseline_3.ipynb), appropriately replacing the existing result filenames by those from step (2). The results are stored in the `figures/` directory.
 
 ### UT-LVCE for Causal Discovery (figures 4, 7, 8 and 9)
+
+1. Execute the script [`run_comparisons.sh`](run_comparisons.sh)
+2. The results are stored in the `comparison_experiments/` directory.
+3. To generate the figures, use notebook [`figures_comparisons.ipynb`](figures_comparisons.ipynb), appropriately replacing the existing result filenames by those from step (2). The results are stored in the `figures/` directory.
 
 ### Sachs Dataset Experiments (figures 5 and 10)
 
