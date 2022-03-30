@@ -34,7 +34,6 @@ N_THREADS=4
 # --------------------------------------------------------------------------------
 # Baseline 2 (figure 3a): recovering I-MEC from initial set of DAGs, no edge pruning
 # tag: fb2
-# 8 jobs
 
 # Random graph
 
@@ -46,7 +45,6 @@ python3 -m ut_lvcm.cross_validated_experiments --n_workers $N_THREADS --tag fb2 
 # --------------------------------------------------------------------------------
 # Baseline 3 (figure 3b): recovering I-MEC from initial set of DAGs, WITH edge pruning
 # tag: fb3
-# 8 jobs
 
 # Random graph
 

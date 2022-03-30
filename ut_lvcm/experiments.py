@@ -1,4 +1,4 @@
-# Copyright 2020 Juan L Gamella
+# Copyright 2022 Juan L. Gamella
 
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -74,7 +74,8 @@ def pooled_data_to_csv(data, path, debug, normalize=False):
     # Save to .csv
     df = pd.DataFrame(normalized)
     filename = path + '.csv'
-    print('  saved pooled test case data to "%s"' % filename) if debug else None
+    print('  saved pooled test case data to "%s"' %
+          filename) if debug else None
     df.to_csv(filename, header=False, index=False)
 
 
@@ -161,7 +162,8 @@ def sample_parameters(A,
         gamma = np.zeros((num_latent, p))
         for i in range(num_latent):
             non_zeros = rng.choice(range(p), size=n_latent_edges)
-            gamma[i, non_zeros] = rng.normal(0, 1 / np.sqrt(n_latent_edges), size=n_latent_edges)
+            gamma[i, non_zeros] = rng.normal(
+                0, 1 / np.sqrt(n_latent_edges), size=n_latent_edges)
     else:
         gamma = rng.normal(0, 1 / np.sqrt(p), size=(num_latent, p))
     # Sample omegas, with or without an observational environment
@@ -169,7 +171,8 @@ def sample_parameters(A,
         omegas = np.tile(rng.uniform(var_lo, var_hi, size=p), (e, 1))
         interventions = np.zeros_like(omegas)
         for j in I:
-            interventions[1:, j] = rng.uniform(int_var_lo, int_var_hi, size=(e - 1))
+            interventions[1:, j] = rng.uniform(
+                int_var_lo, int_var_hi, size=(e - 1))
         omegas += interventions
     else:
         omegas = rng.uniform(var_lo, var_hi, size=(e, p))
@@ -182,7 +185,8 @@ def sample_parameters(A,
         psis[0, :] = rng.uniform(psi_lo, psi_hi, size=num_latent)
         for k in range(1, e):
             psis[k, :] = psis[0, :]
-        psi_interventions = rng.uniform(int_psi_lo, int_psi_hi, size=(e, num_latent))
+        psi_interventions = rng.uniform(
+            int_psi_lo, int_psi_hi, size=(e, num_latent))
         psi_interventions[0, :] = 0
         psis += psi_interventions
     else:
@@ -190,7 +194,8 @@ def sample_parameters(A,
     model = Model(A, B, gamma, omegas, psis)
     print("  Spec. norm gamma @ psi @ gamma:", spectral_norm(
         gamma.T @ np.diag(psis[0]) @ gamma)) if verbose else None
-    print("  Spec. norm omegas:", spectral_norm(np.diag(omegas[:, 0]))) if verbose else None
+    print("  Spec. norm omegas:", spectral_norm(
+        np.diag(omegas[:, 0]))) if verbose else None
     print(gamma.T @ np.diag(psis[0]) @ gamma) if verbose else None
     print(np.diag(omegas[:, 0])) if verbose else None
     return model
@@ -235,9 +240,11 @@ def compile_results(directory, clean=False):
 
             # Output summary
             if case_id != idx:
-                print('    WARNING - case id mismatch, file says %s, stored says %s' % (case_id, idx))
+                print(
+                    '    WARNING - case id mismatch, file says %s, stored says %s' % (case_id, idx))
             if isinstance(result, tuple) and isinstance(result[0], Exception):
-                print('    WARNING - test case resulted in exception:', result[0])
+                print(
+                    '    WARNING - test case resulted in exception:', result[0])
                 print(result[1])
             else:
                 print('    processed result')

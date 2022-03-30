@@ -1,4 +1,4 @@
-# Copyright 2020 Juan L Gamella
+# Copyright 2022 Juan L. Gamella
 
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -145,7 +145,8 @@ excluded_keys += ['psi_fixed'] if not args.psi_fixed else []
 
 print(args)  # For debugging
 
-print("Visible workers: %d vs. args.n_workers %d" % (os.cpu_count(), args.n_workers))
+print("Visible workers: %d vs. args.n_workers %d" %
+      (os.cpu_count(), args.n_workers))
 
 
 # Set random seed
@@ -272,7 +273,8 @@ for seed, (true_model, true_I) in enumerate(test_cases):
     # For LRPS+GES
     if "l" in args.m:
         filename = directory + "test_case_%d_pooled_data" % seed
-        experiments.pooled_data_to_csv(data, filename, debug=False, normalize=True)
+        experiments.pooled_data_to_csv(
+            data, filename, debug=False, normalize=True)
 print("Generated samples for %d test cases (%0.2f seconds)" %
       (len(test_cases), time.time() - start))
 
@@ -328,7 +330,8 @@ def run_ut_lvce(case_id, debug=False):
                               )
     # Recover parents
     (estimated_model, estimated_I, _), _ = result
-    estimated_parents = recover_parents(DEFAULT_TARGET, estimated_model.A, estimated_I)
+    estimated_parents = recover_parents(
+        DEFAULT_TARGET, estimated_model.A, estimated_I)
     print("  Ran UT-LVCE on test case %d in  %0.2f seconds." %
           (case_id, time.time() - start))
     return estimated_parents, result
@@ -337,7 +340,8 @@ def run_ut_lvce(case_id, debug=False):
 
 
 def run_causal_dantzig(debug=False):
-    CMD = "Rscript ut_lvcm/run_hidden_icp.R %d %s %d" % (len(test_cases), directory, debug)
+    CMD = "Rscript ut_lvcm/run_hidden_icp.R %d %s %d" % (
+        len(test_cases), directory, debug)
     start = time.time()
     os.system(CMD)
     print("######################################################################")
@@ -363,7 +367,8 @@ def process_causal_dantzig_results(debug=True):
 
 
 def run_backshift(case_id, debug=False):
-    CMD = "Rscript ut_lvcm/run_backshift.R %d %s %d" % (case_id, directory, debug)
+    CMD = "Rscript ut_lvcm/run_backshift.R %d %s %d" % (
+        case_id, directory, debug)
     start = time.time()
     os.system(CMD)
     print("  Ran Backshift on test case %d in  %0.2f seconds." %
@@ -380,7 +385,8 @@ def process_backshift_results(debug=True):
         print('  "backshift_result_%d.csv"' % i) if debug else None
         estimated_graph = pd.read_csv(filename).to_numpy()[:, 1:]
         os.remove(filename) if not args.save else None
-        estimated_parents = set(np.where(estimated_graph[:, DEFAULT_TARGET] != 0)[0])
+        estimated_parents = set(
+            np.where(estimated_graph[:, DEFAULT_TARGET] != 0)[0])
         print(estimated_graph) if debug else None
         print(estimated_parents) if debug else None
         parents.append([estimated_parents])
@@ -460,26 +466,30 @@ def run_experiments(iterable, map_function):
     start = time.time()
     ground_truth = map_function(run_truth, iterable)
     print("######################################################################")
-    print("  Computed ground truth for all cases in %0.2f seconds" % (time.time() - start))
+    print("  Computed ground truth for all cases in %0.2f seconds" %
+          (time.time() - start))
     results_ut_lvce = None
     # Backshift
     if "b" in args.m:
         start = time.time()
         map_function(worker_backshift, iterable)
         print("######################################################################")
-        print("  Ran backshift for all cases in %0.2f seconds" % (time.time() - start))
+        print("  Ran backshift for all cases in %0.2f seconds" %
+              (time.time() - start))
     # LRPS-ADMM
     if "l" in args.m:
         start = time.time()
         map_function(worker_lrps, iterable)
         print("######################################################################")
-        print("  Ran LRPS-ADMM for all cases in %0.2f seconds" % (time.time() - start))
+        print("  Ran LRPS-ADMM for all cases in %0.2f seconds" %
+              (time.time() - start))
     if "u" in args.m:
         # UT-LVCE
         start = time.time()
         results_ut_lvce = map_function(worker_ut_lvce, iterable)
         print("######################################################################")
-        print("  Ran UT-LVCE for all cases in %0.2f seconds" % (time.time() - start))
+        print("  Ran UT-LVCE for all cases in %0.2f seconds" %
+              (time.time() - start))
     return results_ut_lvce, ground_truth
 
 
@@ -512,7 +522,8 @@ else:
         results_ut_lvce, ground_truth = run_experiments(iterable, pool.map)
 
 end = time.time()
-print("\n\nFinished experiments at %s (elapsed %0.2f seconds)\n\n" % (datetime.now(), end - start))
+print("\n\nFinished experiments at %s (elapsed %0.2f seconds)\n\n" %
+      (datetime.now(), end - start))
 
 # --------------------------------------------------------------------
 # Process results
@@ -534,7 +545,8 @@ if "i" in args.m:
 
 # Backshift
 if "b" in args.m:
-    estimates_backshift, graphs_backshift = process_backshift_results(debug=False)
+    estimates_backshift, graphs_backshift = process_backshift_results(
+        debug=False)
     t1_backshift = [metrics.type_1_parents(est, truth)
                     for est, truth in zip(estimates_backshift, ground_truth)]
     t2_backshift = [metrics.type_2_parents(est, truth)
