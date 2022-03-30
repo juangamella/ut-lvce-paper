@@ -148,3 +148,10 @@ def run_multisplit_experiments():
         tag = "multisplit_%d" % i
         experiment(p=10, tag=tag,
                    folds=[.7, .15, .15], latents=False, random_state=i)
+
+# --------------------------------------------------------------------
+# Run experiments
+
+
+if __name__ == '__main__':
+    run_multisplit_experiments()

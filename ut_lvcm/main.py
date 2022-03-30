@@ -35,6 +35,7 @@ import numpy as np
 import ut_lvcm.utils as utils
 from ut_lvcm.score import Score
 import ut_lvcm
+import ut_lvcm.ges
 import gc  # Garbage collector
 
 # TODO
