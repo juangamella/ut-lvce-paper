@@ -8,7 +8,7 @@ This README is not intended to be completely self-explanatory, and should be rea
 
 We ran our experiments using `python=3.7.1` and `R=3.6.0`. The required R packages can be found in [`R_requirements.txt`](R_requirements.txt). The Python dependencies live in [`requirements.txt`](requirements.txt).
 
-For your convenience, a makefile is included that will create a python virtual environment and install the necessary Python dependencies. To do this, simply run
+For your convenience, a makefile is included to create a python virtual environment and install the necessary Python dependencies. To do this, simply run
 
 ```sh
 make venv
