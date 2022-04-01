@@ -24,11 +24,13 @@ and then
 source venv/bin/activate
 ```
 
-to activate the virtual environment. Of course, you will need to be in a "make-capable" system (e.g. linux), where you can invoke the python `venv` module. To run the notebooks from the virtual environment, create a new local kernel (while the environment is active):
+to activate the virtual environment. Of course, you will need to be in a "make-capable" system (e.g. linux), and where you can invoke the python `venv` module. To run the notebooks from the virtual environment, create a new local kernel (while the environment is active):
 
 ```
 ipython kernel install --user --name=.venv
 ```
+
+and once inside the notebook select the kernel: `Kernel -> Change kernel -> .venv`.
 
 ## Reproducing the results
 
