@@ -44,8 +44,8 @@
 # ut_lvcm/comparison_experiments.py.
 #   -> You don't need to use this flag to run on a cluster.
 
-BASE='--n_workers 50 --cluster --chunksize 1 --runs 10 --seed 42 --G 50 --k 2.1 --p 20 --w_lo 0.7 --w_hi 0.7 --v_lo 0.5 --v_hi 0.6 --psi_lo 0.2 --psi_hi 0.3 --h 2 --e 5 --min_parents 2 --hist 1'
-BSUB_PARAMS='-W 120:00 -n 51'
+BASE='--n_workers 50 --cluster --chunksize 1 --runs 10 --seed 42 --G 50 --k 2.1 --p 20 --w_lo 0.6 --w_hi 0.8 --v_lo 0.5 --v_hi 0.6 --psi_lo 0.2 --psi_hi 0.3 --h 2 --e 5 --min_parents 2 --hist 1'
+BSUB_PARAMS='--time=120:00:00 --ntasks=51'
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 # HH - hard interventions on observeds, hard interventions on latents
@@ -56,9 +56,9 @@ TAG='fffchh'
 
 # I = 10
 
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000\""
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -70,21 +70,21 @@ TAG='fffchs'
 
 # I = 10
 
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000\""
 
 # I = 19
 
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 100
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 500
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 100\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 500\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000\""
 
 # I = 20
 
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000\""
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -96,22 +96,22 @@ TAG='fffcsh'
 
 # I = 10
 
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000\""
 
 # I = 19
 
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 100
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 500
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 10000
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 100\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 500\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 10000\""
 
 # I = 20
 
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000\""
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 # SS - Soft interventions on observed and latents
@@ -122,20 +122,20 @@ TAG='fffcss'
 
 # I = 10
 
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 100\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 500\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 10 --n 1000\""
 
 # I = 19
 
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 100
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 500
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 10000
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 100\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 500\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 1000\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 19 --n 10000\""
 
 # I = 20
 
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000
-bsub $BSUB_PARAMS python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 10000
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 100\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 500\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 1000\""
+echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $INTERVENTIONS --size_I 20 --it --n 10000\""
