@@ -45,10 +45,14 @@ while (case_no < CASES) {
         }
 
     ## Write point estimate
+    print("Saving test case")
     filename = sprintf('%shicp_result_%d.csv', PATH, case_no)
     write.csv(one_hot, filename)
-    
-    case_no = case_no + 1
+
+    print(sprintf("  saved test case %d to file %s", case_no, filename))
+
     if (DEBUG) print(sprintf("  Finished test case %d", case_no)) else 0
     }
+
+    case_no = case_no + 1
  
