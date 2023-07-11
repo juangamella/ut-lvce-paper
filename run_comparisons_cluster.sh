@@ -45,7 +45,7 @@
 #   -> You don't need to use this flag to run on a cluster.
 
 BASE='--n_workers 50 --cluster --chunksize 1 --runs 10 --seed 42 --G 50 --k 2.1 --p 20 --w_lo 0.6 --w_hi 0.8 --v_lo 0.5 --v_hi 0.6 --psi_lo 0.2 --psi_hi 0.3 --h 2 --e 5 --min_parents 2 --hist 1'
-BSUB_PARAMS='--time=120:00:00 --ntasks=51'
+BSUB_PARAMS='--time=24:00:00 --ntasks=51'
 
 # ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 # HH - hard interventions on observeds, hard interventions on latents
