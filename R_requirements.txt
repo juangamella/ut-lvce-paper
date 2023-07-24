@@ -2,6 +2,8 @@
 install.packages("BiocManager")
 BiocManager::install(c("graph", "RBGL", "ggm"))
 
+install.packages(c("pcalg", "bnlearn", "igraph"))
+
 # Backshift
 install.packages("backShift", dependencies=TRUE)
 
@@ -11,4 +13,5 @@ install.packages("InvariantCausalPrediction", dependencies=TRUE)
 # For LRPS-ADMM
 install.packages(c("Matrix", "MASS", "mvtnorm", "RSpectra", "matrixcalc", "pcaPP", "cvTools"))
 
-install.packages(c("pcalg", "bnlearn", "igraph"))
+
+
