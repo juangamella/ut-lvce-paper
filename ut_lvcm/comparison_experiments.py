@@ -89,7 +89,7 @@ arguments = {
     "runs": {"default": 1, "type": int},
     # Which methods to run: u - ut-lvce, b - backshift, i - hidden ICP/causal dantzig, l - LRPS+GES
     "m": {"default": "ubil", "type": str},
-    # If data and method output files should be kept after execution (default - No)
+    # If method output files should be kept after execution (default - No)
     "save": {"default": False, "type": bool},
     # SCM generation parameters
     "min_parents": {"default": 2, "type": int},
@@ -318,7 +318,6 @@ def run_ut_lvce(case_id, debug=False):
     # Read test case data
     filename = directory + "test_case_%d_data.npy" % case_id
     data = np.load(filename)
-    os.remove(filename) if not args.save else None
     start = time.time()
     # Run UT-LVCE
     result = ut_lvcm.main.fit(
@@ -399,8 +398,6 @@ def run_backshift(case_id, debug=False):
         "  Ran Backshift on test case %d in  %0.2f seconds."
         % (case_id, time.time() - start)
     )
-    filename = directory + "test_case_%d_data.csv" % case_id
-    os.remove(filename) if not args.save else None
 
 
 def process_backshift_results(debug=True):
@@ -430,8 +427,6 @@ def run_lrps(case_id, debug=False):
         "  Ran LRPS-ADMM on test case %d in  %0.2f seconds."
         % (case_id, time.time() - start)
     )
-    filename = directory + "test_case_%d_pooled_data.csv" % case_id
-    os.remove(filename) if not args.save else None
 
 
 def process_lrps_results(debug=True):
