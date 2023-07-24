@@ -51,8 +51,10 @@ while (case_no < CASES) {
 
     print(sprintf("  saved test case %d to file %s", case_no, filename))
 
+    case_no = case_no + 1
+    
     if (DEBUG) print(sprintf("  Finished test case %d", case_no)) else 0
     }
 
-    case_no = case_no + 1
+
  
