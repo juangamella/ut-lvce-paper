@@ -115,6 +115,7 @@ arguments = {
     "psi_fixed": {"default": False, "type": bool},
     "th": {"default": None, "type": float},
     "hist": {"default": 1, "type": int},
+    "Hs": {"default": "1,2,3", "type": str},
     # Sampling parameters
     "n": {"default": 1000, "type": int},
     #  UT-LVCM parameters
@@ -301,7 +302,7 @@ gc.collect()
 
 # UT-LVCE
 
-hs = [1, 2, 3]  # if args.h > 0 else [0]
+hs = [int(h) for h in args.Hs.split(",")]
 psi_max = None
 max_iter = 1000
 threshold_dist_B = 1e-3
