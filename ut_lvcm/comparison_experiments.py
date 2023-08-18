@@ -111,6 +111,10 @@ arguments = {
     "size_I": {"default": 10, "type": int},
     "it": {"default": False, "type": bool},
     "sl": {"default": False, "type": bool},
+    "umd": {
+        "default": False,
+        "type": bool,
+    },  # Unconstrained max degree of moral graph (see below; default is False, i.e. it is constrained to p / 6)
     # UT-LVCE settings
     "psi_fixed": {"default": False, "type": bool},
     "th": {"default": None, "type": float},
@@ -203,11 +207,11 @@ while len(test_cases) < args.G:
         print("    Duplicate") if args.debug else None
         continue
     # Limit on max degree of moral graph
-    elif max_degree > np.ceil(args.p / 6):
+    elif not args.umd and max_degree > np.ceil(args.p / 6):
         print(
             "    Max-degree of moral graph is %d > p / 6 = %s"
             % (max_degree, args.p / 6)
-        ) if args.debug else None
+        )  # if args.debug else None
         continue
     # The target should have at least args.min_parents parents
     elif len(utils.pa(DEFAULT_TARGET, model.A)) < args.min_parents:
