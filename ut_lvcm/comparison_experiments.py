@@ -92,7 +92,7 @@ arguments = {
     # If method output files should be kept after execution (default - No)
     "save": {"default": False, "type": bool},
     # SCM generation parameters
-    "min_parents": {"default": 2, "type": int},
+    "pa": {"default": 2, "type": int},
     "G": {"default": 1, "type": int},
     "k": {"default": 1.5, "type": float},
     "p": {"default": 20, "type": int},
@@ -213,8 +213,8 @@ while len(test_cases) < args.G:
             % (max_degree, args.p / 6)
         )  # if args.debug else None
         continue
-    # The target should have at least args.min_parents parents
-    elif len(utils.pa(DEFAULT_TARGET, model.A)) < args.min_parents:
+    # The target should have at least args.pa parents
+    elif len(utils.pa(DEFAULT_TARGET, model.A)) < args.pa:
         print(
             "    Target (%d) has too few parents (%d)."
             % (DEFAULT_TARGET, len(utils.pa(DEFAULT_TARGET, model.A)))
