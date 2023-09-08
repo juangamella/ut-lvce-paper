@@ -342,13 +342,12 @@ def run_ut_lvce(case_id, debug=False):
         store_history=args.hist,
         prune_graph=True,
     )
+    elapsed = time.time() - start
     # Recover parents
     (estimated_model, estimated_I, _), _ = result
+    result += (elapsed,)
     estimated_parents = recover_parents(DEFAULT_TARGET, estimated_model.A, estimated_I)
-    print(
-        "  Ran UT-LVCE on test case %d in  %0.2f seconds."
-        % (case_id, time.time() - start)
-    )
+    print("  Ran UT-LVCE on test case %d in  %0.2f seconds." % (case_id, elapsed))
     filename = directory + "ut_lvce_result_%d.csv" % case_id
     with open(filename, "wb") as f:
         pickle.dump((estimated_parents, result), f)
@@ -614,6 +613,7 @@ if "l" in args.m:
 # UT-LVCE
 if "u" in args.m:
     estimates_ut_lvce = [r[0] for r in results_ut_lvce]
+    elapsed_ut_lvce = [r[2] for r in results_ut_lvce]
     t1_ut_lvce = [
         metrics.type_1_parents(est, truth)
         for est, truth in zip(estimates_ut_lvce, ground_truth)
@@ -622,6 +622,7 @@ if "u" in args.m:
         metrics.type_2_parents(est, truth)
         for est, truth in zip(estimates_ut_lvce, ground_truth)
     ]
+    results["elapsed_ut_lvce"] = elapsed_ut_lvce
     results["estimates_ut_lvce"] = estimates_ut_lvce
     results["t1_ut_lvce"] = t1_ut_lvce
     results["t2_ut_lvce"] = t2_ut_lvce
