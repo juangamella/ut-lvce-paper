@@ -53,23 +53,23 @@ BSUB_PARAMS='--time=50:00:00 --ntasks=150'
 
 # h = 2, k = 1.9
 CASE_PARAMS='--h 2 --k 1.9'
-TAG='zz'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # h = 2, k = 2.5
-CASE_PARAMS='--h 2 --k 3'
-TAG='zz'
+CASE_PARAMS='--h 2 --k 2.5'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # h = 2, k = 3
-CASE_PARAMS='--h 2 --k 3.5'
-TAG='zz'
+CASE_PARAMS='--h 2 --k 3'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
@@ -80,23 +80,23 @@ echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --t
 
 # h = 3, k = 1.9
 CASE_PARAMS='--h 3 --k 1.9'
-TAG='zz'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # h = 3, k = 2.5
-CASE_PARAMS='--h 3 --k 3'
-TAG='zz'
+CASE_PARAMS='--h 3 --k 2.5'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # h = 3, k = 3
-CASE_PARAMS='--h 3 --k 3.5'
-TAG='zz'
+CASE_PARAMS='--h 3 --k 3'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
@@ -108,23 +108,23 @@ echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --t
 
 # h = 4, k = 1.9
 CASE_PARAMS='--h 4 --k 1.9'
-TAG='zz'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # h = 4, k = 2.5
-CASE_PARAMS='--h 4 --k 3'
-TAG='zz'
+CASE_PARAMS='--h 4 --k 2.5'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # h = 4, k = 3
-CASE_PARAMS='--h 4 --k 3.5'
-TAG='zz'
+CASE_PARAMS='--h 4 --k 3'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
@@ -136,23 +136,23 @@ echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --t
 
 # h = 5, k = 1.9
 CASE_PARAMS='--h 5 --k 1.9'
-TAG='zz'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # h = 5, k = 2.5
-CASE_PARAMS='--h 5 --k 3'
-TAG='zz'
+CASE_PARAMS='--h 5 --k 2.5'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # h = 5, k = 3
-CASE_PARAMS='--h 5 --k 3.5'
-TAG='zz'
+CASE_PARAMS='--h 5 --k 3'
+TAG='z'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
@@ -163,23 +163,23 @@ echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --t
 
 # # h = XX, k = 1.9
 # CASE_PARAMS='--h XX --k 1.9'
-# TAG='zz'
+# TAG='z'
 
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # # h = XX, k = 2.5
-# CASE_PARAMS='--h XX --k 3'
-# TAG='zz'
+# CASE_PARAMS='--h XX --k 2.5'
+# TAG='z'
 
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # # h = XX, k = 3
-# CASE_PARAMS='--h XX --k 3.5'
-# TAG='zz'
+# CASE_PARAMS='--h XX --k 3'
+# TAG='z'
 
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
@@ -191,23 +191,23 @@ echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --t
 
 # # h = 5, k = 1.9
 # CASE_PARAMS='--h 5 --k 1.9'
-# TAG='zz'
+# TAG='z'
 
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # # h = 5, k = 2.5
-# CASE_PARAMS='--h 5 --k 3'
-# TAG='zz'
+# CASE_PARAMS='--h 5 --k 2.5'
+# TAG='z'
 
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # # h = 5, k = 3
-# CASE_PARAMS='--h 5 --k 3.5'
-# TAG='zz'
+# CASE_PARAMS='--h 5 --k 3'
+# TAG='z'
 
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
@@ -219,23 +219,23 @@ echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --t
 
 # # h = 10, k = 1.9
 # CASE_PARAMS='--h 10 --k 1.9'
-# TAG='zz'
+# TAG='z'
 
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # # h = 10, k = 2.5
-# CASE_PARAMS='--h 10 --k 3'
-# TAG='zz'
+# CASE_PARAMS='--h 10 --k 2.5'
+# TAG='z'
 
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 1000\""
 
 # # h = 10, k = 3
-# CASE_PARAMS='--h 10 --k 3.5'
-# TAG='zz'
+# CASE_PARAMS='--h 10 --k 3'
+# TAG='z'
 
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
 # echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 500\""
