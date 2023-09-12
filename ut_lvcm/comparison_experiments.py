@@ -613,7 +613,6 @@ if "l" in args.m:
 # UT-LVCE
 if "u" in args.m:
     estimates_ut_lvce = [r[0] for r in results_ut_lvce]
-    elapsed_ut_lvce = [r[2] for r in results_ut_lvce]
     t1_ut_lvce = [
         metrics.type_1_parents(est, truth)
         for est, truth in zip(estimates_ut_lvce, ground_truth)
@@ -622,7 +621,6 @@ if "u" in args.m:
         metrics.type_2_parents(est, truth)
         for est, truth in zip(estimates_ut_lvce, ground_truth)
     ]
-    results["elapsed_ut_lvce"] = elapsed_ut_lvce
     results["estimates_ut_lvce"] = estimates_ut_lvce
     results["t1_ut_lvce"] = t1_ut_lvce
     results["t2_ut_lvce"] = t2_ut_lvce
