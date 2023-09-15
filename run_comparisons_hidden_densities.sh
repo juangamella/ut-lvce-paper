@@ -107,7 +107,7 @@ echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --t
 # H = 4
 
 # # h = 4, k = 1.9
-# CASE_PARAMS='--h 4 --k 1.9'
+CASE_PARAMS='--h 4 --k 1.9'
 TAG='hd4l'
 
 echo "sbatch $BSUB_PARAMS --wrap=\"python3 -m ut_lvcm.comparison_experiments --tag $TAG $BASE $CASE_PARAMS --n 100\""
